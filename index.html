@@ -30,32 +30,33 @@
 
     </ul>
 
- <script>
-      const unordered = document.querySelector("ul");
-      const input = document.querySelector("input");
-      const button = document.querySelector("button");
+    <script>
+     const unordered = document.querySelector("ul");
+     const input = document.querySelector("input");
+     const button = document.querySelector("button");
 
-      button.addEventListener("click", addToList);
+     button.addEventListener("click", addToList);
 
-      function addToList(input) {
-       let value = input;
-       input.textContent = "";
+     function addToList() {
+      const current = input.value;
+      input.value = "";
 
-       const list = document.createElement("li");
-       const span = document.createElement("span");
-       const funcButt = document.createElement("button");
+      const list = document.createElement("li");
+      const span = document.createElement("span");
+      const funcButt = document.createElement("button");
 
-       list.appendChild(span);
-       list.appendChild(funcButt);
+      span.textContent = current;
+      funcButt.textContent = "Delete";
 
-       span.textContent = value;
+      list.appendChild(span);
+      list.appendChild(funcButt);
 
-       funcButt.textContent = "Delete"
-       funcButt.addEventListener("click", delete)
+      funcButt.addEventListener("click", function () {
+      unordered.removeChild(list);
+    });
 
-       unordered.appendChild(list)
-      }
+       unordered.appendChild(list);
+     }
     </script>
-
   </body>
 </html>
